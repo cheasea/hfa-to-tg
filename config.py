@@ -5,8 +5,8 @@ dotenv.load_dotenv()
 env = os.getenv("ENV")
 
 token = os.getenv("TOKEN")
-secret_token = ""
-confirmation_token = ""
+secret_key = os.getenv("SECRET_KEY")
+confirmation_token = os.getenv("CONFIRMATION_TOKEN")
 group_id = os.getenv("GROUP_ID")
 vk_api_version = "5.89"
 

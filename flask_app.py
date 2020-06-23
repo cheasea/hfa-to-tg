@@ -23,7 +23,7 @@ if env == "DEV":
 
 elif env == "PROD":
     from flask import Flask, request, json
-    from config import confirmation_token, secret_token
+    from config import confirmation_token, secret_key
 
     app = Flask(__name__)
     app.config.from_object('config.Production')
@@ -46,7 +46,7 @@ elif env == "PROD":
         if data['type'] == 'confirmation':
             return confirmation_token
         else:
-            if data['secret'] != secret_token:
+            if data['secret'] != secret_key:
                 return 'not vk'
 
             process_event(e)
