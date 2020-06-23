@@ -38,7 +38,6 @@ elif env == "PROD":
     @app.route('/', methods=['POST'])
     def processing():
         data = json.loads(request.data)
-        e = VkBotEvent(data)
 
         if 'type' not in data.keys():
             return 'not vk'
@@ -49,5 +48,6 @@ elif env == "PROD":
             if data['secret'] != secret_key:
                 return 'not vk'
 
+            e = VkBotEvent(data)
             process_event(e)
             return 'ok'
